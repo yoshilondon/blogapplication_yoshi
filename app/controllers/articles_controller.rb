@@ -22,6 +22,10 @@ class ArticlesController < ApplicationController
     # @article.save : データベースに値を保存する
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
   private
   def article_params
     # ホームから投稿されたデータの中からタイトルとコンテンツを抜き出す。
