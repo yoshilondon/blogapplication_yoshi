@@ -26,6 +26,16 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 
+  def update
+    @article = Article.find(params[:id])
+    if @article.update(article_params)
+      redirect_to article_path(@article), notice: '更新出来ました'
+    else
+      flash.now[:error] = '更新出来ませんでした'
+      render :edit
+    end
+  end
+
   private
   def article_params
     # ホームから投稿されたデータの中からタイトルとコンテンツを抜き出す。
