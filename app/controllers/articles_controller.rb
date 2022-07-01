@@ -1,10 +1,11 @@
 class ArticlesController < ApplicationController
+  before_action :set_article, only: [:show, :edit, :update]
+
   def index
     @articles = Article.all
   end
 
   def show
-    @article = Article.find(params[:id])
   end
 
   def new
@@ -23,11 +24,9 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
     if @article.update(article_params)
       redirect_to article_path(@article), notice: '更新出来ました'
     else
@@ -47,5 +46,9 @@ class ArticlesController < ApplicationController
     # ホームから投稿されたデータの中からタイトルとコンテンツを抜き出す。
     params.require(:article).permit(:title, :content)
     # strong parameter 最初にprivateを付ける
+  end
+
+  def set_article
+    @article = Article.find(params[:id]) 
   end
 end
