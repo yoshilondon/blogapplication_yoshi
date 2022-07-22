@@ -23,4 +23,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :articles, dependent: :destroy
+
+  def has_written?(article)
+    articls.exits?(id: article.id)
+  end
 end
