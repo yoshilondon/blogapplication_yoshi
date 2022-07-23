@@ -33,4 +33,8 @@ class User < ApplicationRecord
     self.email.split('@').first
     # => ['yoyoyoyoshiki', 'hotmail.com']
   end
+
+  def prepare_profile
+    profile || build_profile
+  end
 end
