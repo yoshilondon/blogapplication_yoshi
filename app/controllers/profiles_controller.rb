@@ -30,4 +30,5 @@ class ProfilesController < ApplicationController
       :subscribed
     )
   end
-end
+end       
+    
