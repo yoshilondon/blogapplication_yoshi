@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create]
   end
   # resourcesはいろいろなurlをrailsが自動で作ってくれる
+
+  resource :profile, only: [:show, :edit, :update]
 end
