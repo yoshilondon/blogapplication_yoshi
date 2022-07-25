@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
   private
   def article_params
     # ホームから投稿されたデータの中からタイトルとコンテンツを抜き出す。
-    params.require(:article).permit(:title, :content)
+    params.require(:article).permit(:title, :content, :eyecatch)
     # strong parameter 最初にprivateを付ける
   end
 
