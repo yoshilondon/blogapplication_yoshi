@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   # resourcesはいろいろなurlをrailsが自動で作ってくれる
 
   resource :profile, only: [:show, :edit, :update]
+  resources :favorites, only: [:index]
 end
