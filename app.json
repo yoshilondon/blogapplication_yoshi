@@ -1,0 +1,16 @@
+{
+  "name": "blog application",
+  "description": "This is blogapplication",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/yoshilondon/blogapplication_yoshi",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:hobby-dev"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
