@@ -21,10 +21,6 @@ has_rich_text :content
   validates :title, format: { with: /\A(?!\@)/ }
 
   validates :content, presence: true
-  validates :content, length: { minimum: 10 }
-  validates :content, uniqueness: true
-
-  validate :validate_title_and_content_length
 
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
