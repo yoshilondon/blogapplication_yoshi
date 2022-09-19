@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   end
   # resourcesはいろいろなurlをrailsが自動で作ってくれる
 
-  resources :accounts, only: [:show]
+  resources :accounts, only: [:show] do
+    resources :follows, only: [:create]
+  end
 
   resource :profile, only: [:show, :edit, :update]
   resources :favorites, only: [:index]
