@@ -27,9 +27,28 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   // show-comment-formをクリックすると、hiddenがクラス名に追加されて表示が消える。
   // text-areaのhiddenがクラス名から外されて表示される
-  $('.show-comment-form').on('click', () =>{
+  $('.show-comment-form').on('click', () => {
     $('.show-comment-form').addClass('hidden')
     $('.comment-text-area').removeClass('hidden')
+  })
+
+  $('.add-comment-button').on('click', () => {
+    // comment_contentの値を取得
+    const content =$('#comment_content').val()
+    if (!content) {
+      window.alert('コメントを入力してください')
+    } else {
+      axios.post(`/articles/${articleId}/comments`, {
+        comment: {content: content}
+      })
+        .then((res) => {
+          const comment = res.data
+          $('.comments-container').append(
+            `<div class="article_comment"><p>${comment.content}</p></div>`
+          )
+          $('#comment_content').val('')
+        })
+    }
   })
 
   axios.get(`/articles/${articleId}/like`)
