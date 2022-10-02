@@ -60,12 +60,13 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "blog_application_production"
 
-  config.action_mailer.perform_caching = false
+  # config.action_mailer.perform_caching = false
 
-  host = 'https://blogapplication-yoshilondon.herokuapp.com/'
-  config.action_mailer.default_url_options = { host: host }
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+  host = 'https://blogapplication-yoshilondon.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: host }  
+  ActionMailer::Base.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
     :domain => 'herokuapp.com',
