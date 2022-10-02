@@ -62,7 +62,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { protocol: 'https', host: 'blog_application.herokuapp.com' }
+  host = 'https://blogapplication-yoshilondon.herokuapp.com/'
+  config.action_mailer.default_url_options = { host: host }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
