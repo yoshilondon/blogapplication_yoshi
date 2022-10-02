@@ -60,10 +60,10 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "blog_application_production"
 
-  config.action_mailer.perform_caching = false  
-  config.action_mailer.default_url_options = { host: 'blog_application.herokuapp.com' }
+  config.action_mailer.perform_caching = false
+
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'blog_application.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD'],
