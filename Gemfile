@@ -30,6 +30,7 @@ gem 'devise'
 gem 'faker'
 gem 'hamlit'
 gem 'sendgrid-ruby'
+gem 'sidekiq'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
